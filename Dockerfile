@@ -1,4 +1,7 @@
-FROM node:alpine
-COPY . /app
+FROM python:3.9
+
+RUN pip install pandas
+
 WORKDIR /app
-CMD node app.js
+COPY pipeline.py pipeline.py
+ENTRYPOINT [ "python" , "pipeline.py"]
